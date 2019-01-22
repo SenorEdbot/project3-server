@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3001
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/midWaste";
 const server = express()
 const routes = require('./routes')
-const cors = reauire('cors')
+const cors = require('cors')
 
 // Allow requests from any origin (insecure)
 server.use(cors());
