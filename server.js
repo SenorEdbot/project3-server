@@ -6,24 +6,13 @@ const server = express()
 const routes = require('./routes')
 const cors = reauire('cors')
 
+// Allow requests from any origin (insecure)
+server.use(cors());
+
 // Middleware
 server.use(express.urlencoded({ extended: false }))
 server.use(express.json())
 server.use(express.static('client/dist'))
-
-// Set up a CORS whitelist...
-const whitelist = ['https://midwaste.herokuapp.com', 'http://localhost:3000']
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback (new Error('Not allowed by CORS'))
-    }
-  }
-}
-// ...and check against it.
-server.use(cors(corsOptions))
 
 // Routes
 server.use(routes)
