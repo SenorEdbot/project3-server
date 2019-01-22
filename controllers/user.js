@@ -18,14 +18,11 @@ module.exports = {
     }
   },
   async findByUsernameAndUpdate (req, res) {
-
-    console.log(req.body) // ! DEBUG ONLY
-
     try {
-      // The find condition (player's username)
+      // Find by this condition (player's username)
       const condition = { name: req.params.username }
 
-      // Incoming stats to check whether to update or not
+      // Grab incoming stats to check whether to update or not
       const { maxTimeSurvived, maxDifficulty, maxEnemiesKilled, maxShotsFired, maxAccuracy} = req.body;
 
       // Set max stats, push to historical stats and set most recent stats
