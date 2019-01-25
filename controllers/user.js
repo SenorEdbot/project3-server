@@ -23,7 +23,12 @@ module.exports = {
       const dbUser = await db.User.findOneAndUpdate(condition, req.body, { upsert: true })
       res.json(dbUser)
     } catch (err) {
-      res.json(err)
+      try {
+        const newDbUser = await db.User.create({ name: req.params.username })
+        res.json(newDbUser)        
+      } catch (error) {
+        res.json(error)        
+      }
     }
   }
 }
