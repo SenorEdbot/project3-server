@@ -23,7 +23,7 @@ module.exports = {
       const condition = { name: req.params.username }
 
       // Grab incoming stats to check whether to update or not
-      const { maxTimeSurvived, maxDifficulty, maxEnemiesKilled, maxShotsFired, maxAccuracy} = req.body;
+      const { maxTimeSurvived, maxDifficulty, maxEnemiesKilled, maxShotsFired, maxAccuracy, tutorialCompleted} = req.body;
 
       // Set max stats, push to historical stats and set most recent stats
       const updatedStats = {
@@ -46,7 +46,8 @@ module.exports = {
           recentDifficulty: maxDifficulty,
           recentEnemiesKilled: maxEnemiesKilled,
           recentShotsFired: maxShotsFired,
-          recentAccuracy: maxAccuracy
+          recentAccuracy: maxAccuracy,
+          tutorialCompleted
         }
       }
 

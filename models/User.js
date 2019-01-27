@@ -70,6 +70,10 @@ const UserSchema = new Schema({
     type: Array,
     required: false
   },
+  tutorialCompleted: {
+    type: Boolean,
+    required: false
+  }
 });
 
 const User = mongoose.model('User', UserSchema);
