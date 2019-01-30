@@ -6,6 +6,10 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  profile: {
+    type: Object,
+    required: false
+  },
   maxTimeSurvived: {
     type: Number,
     required: false
